@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 import '../models/products.dart';
+import '../widgets/product_item.dart';
 
 class ProductsOverviewScreen extends StatelessWidget {
   // const ProductsOverviewScreen({super.key});
@@ -58,7 +59,11 @@ class ProductsOverviewScreen extends StatelessWidget {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
         ),
-        itemBuilder: (ctx, i) => Container(),
+        itemBuilder: (ctx, i) => ProductItem(
+          loadedProduct[i].id,
+          loadedProduct[i].title,
+          loadedProduct[i].imageUrl,
+        ),
       ),
     );
   }
