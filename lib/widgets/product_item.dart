@@ -20,10 +20,21 @@ class ProductItem extends StatelessWidget {
       ),
       footer: GridTileBar(
         backgroundColor: Colors.black54,
-          title: Text(
-        title,
-        textAlign: TextAlign.center,
-      )),
+        leading: IconButton(
+          icon: Icon(Icons.favorite),
+          onPressed: () {},
+        ),
+        title: Text(
+          title,
+          textAlign: TextAlign.center,
+        ),
+        trailing: IconButton(
+          icon: Icon(
+            Icons.shopping_cart,
+          ),
+          onPressed: () {},
+        ),
+      ),
     );
   }
 }
