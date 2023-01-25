@@ -6,13 +6,14 @@ class PruductDetailScreen extends StatelessWidget {
   // const PruductDetailScreen({super.key});
   final String title;
 
-  
   PruductDetailScreen(this.title);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(title),
+      ),
     );
   }
 }
