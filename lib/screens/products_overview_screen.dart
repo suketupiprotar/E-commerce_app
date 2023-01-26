@@ -2,7 +2,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
-import '../models/products.dart';
+import '../models/product.dart';
 import '../widgets/product_item.dart';
 
 class ProductsOverviewScreen extends StatelessWidget {
