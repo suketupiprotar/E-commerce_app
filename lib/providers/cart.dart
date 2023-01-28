@@ -15,4 +15,16 @@ class CartItem {
   );
 }
 
-class Cart with ChangeNotifier {}
+class Cart with ChangeNotifier {
+  late Map<String,CartItem> _items;
+
+  Map<String,CartItem> get items {
+    return {..._items}; 
+  }
+
+  void addItem(String productId,String price,String title,)
+  {
+    if(_items.containsKey(key))
+  }
+
+}
