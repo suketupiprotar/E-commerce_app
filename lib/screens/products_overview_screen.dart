@@ -30,28 +30,30 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         ),
         actions: [
           PopupMenuButton(
-              onSelected: (FilterOption selectedValue) {
-                setState(() {
-                  if (selectedValue == FilterOption.Favorite) {
-                    _showOnlyFavorites = true;
-                  } else {
-                    _showOnlyFavorites = false;
-                  }
-                });
-              },
-              icon: Icon(
-                Icons.more_vert,
+            onSelected: (FilterOption selectedValue) {
+              setState(() {
+                if (selectedValue == FilterOption.Favorite) {
+                  _showOnlyFavorites = true;
+                } else {
+                  _showOnlyFavorites = false;
+                }
+              });
+            },
+            icon: Icon(
+              Icons.more_vert,
+            ),
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                child: Text('Only Favorite!'),
+                value: FilterOption.Favorite,
               ),
-              itemBuilder: (_) => [
-                    PopupMenuItem(
-                      child: Text('Only Favorite!'),
-                      value: FilterOption.Favorite,
-                    ),
-                    PopupMenuItem(
-                      child: Text('Show All!'),
-                      value: FilterOption.All,
-                    ),
-                  ]),
+              PopupMenuItem(
+                child: Text('Show All!'),
+                value: FilterOption.All,
+              ),
+            ],
+          ),
+          
         ],
       ),
       body: ProductsGrid(_showOnlyFavorites),
