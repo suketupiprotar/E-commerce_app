@@ -12,9 +12,15 @@ enum FilterOption {
   All,  
 }
 
-class ProductsOverviewScreen extends StatelessWidget {
+class ProductsOverviewScreen extends StatefulWidget {
+  @override
+  State<ProductsOverviewScreen> createState() => _ProductsOverviewScreenState();
+}
+
+class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
+  var _showOnlyFavorites = false;
+
   // const ProductsOverviewScreen({super.key});
-  final productsContainer = Provider.of<Products>(context,listen: false);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +32,10 @@ class ProductsOverviewScreen extends StatelessWidget {
           PopupMenuButton(
             onSelected: (FilterOption selectedValue) {
               if (selectedValue == FilterOption.Favorite) {
-                productsContainer.showFavotitesOnly();
+                _showOnlyFavorites = true;
               }
               else{
-                productsContainer.showAll();
+                _showOnlyFavorites = false;
               }
             },
               icon: Icon(

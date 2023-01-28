@@ -41,10 +41,10 @@ class Products with ChangeNotifier {
   var _showFavotitesOnly = false;
 
   List<Product> get items {
-    if(_showFavotitesOnly)
-    {
-      return _items.where((prodItem) => prodItem.isFavorite).toList();
-    }
+    // if(_showFavotitesOnly)
+    // {
+    //   return _items.where((prodItem) => prodItem.isFavorite).toList();
+    // }
     return [..._items];
   }
  Product findById(String id)
@@ -52,16 +52,16 @@ class Products with ChangeNotifier {
   return _items.firstWhere((prod) => prod.id == id);
  }
 
- void showFavotitesOnly()
- {
-    _showFavotitesOnly = true;
-    notifyListeners();
- }
- void showAll()
- {
-  _showFavotitesOnly = false;
-  notifyListeners();
- }
+  //  void showFavotitesOnly()
+  //  {
+  //     _showFavotitesOnly = true;
+  //     notifyListeners();
+  //  }
+  //  void showAll()
+  //  {
+  //   _showFavotitesOnly = false;
+  //   notifyListeners();
+  //  }
 
   void addProducts() {
     // _items.add(value);
