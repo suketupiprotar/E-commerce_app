@@ -22,7 +22,7 @@ class ProductsOverviewScreen extends StatelessWidget {
         ),
         actions: [
           PopupMenuButton(
-            onSelected: (int selectedValue) {
+            onSelected: (FilterOption selectedValue) {
               print(selectedValue);
             },
               icon: Icon(
@@ -31,11 +31,11 @@ class ProductsOverviewScreen extends StatelessWidget {
               itemBuilder: (_) => [
                     PopupMenuItem(
                       child: Text('Only Favorite!'),
-                      value: 0,
+                      value: FilterOption.Favorite,
                     ),
                      PopupMenuItem(
                       child: Text('Show All!'),
-                      value: 1,
+                      value: FilterOption.All,
                     ),
                   ]),
         ],
