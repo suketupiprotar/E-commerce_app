@@ -23,7 +23,12 @@ class ProductsOverviewScreen extends StatelessWidget {
         actions: [
           PopupMenuButton(
             onSelected: (FilterOption selectedValue) {
-              print(selectedValue);
+              if (selectedValue == FilterOption.Favorite) {
+                
+              }
+              else{
+                
+              }
             },
               icon: Icon(
                 Icons.more_vert,
