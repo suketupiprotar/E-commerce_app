@@ -55,10 +55,12 @@ class Products with ChangeNotifier {
  void showFavotitesOnly()
  {
     _showFavotitesOnly = true;
+    notifyListeners();
  }
  void showAll()
  {
   _showFavotitesOnly = false;
+  notifyListeners();
  }
 
   void addProducts() {
