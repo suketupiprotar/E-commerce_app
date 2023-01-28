@@ -5,6 +5,11 @@ import 'package:shop_app/widgets/products_grid.dart';
 import '../providers/product.dart';
 import '../widgets/product_item.dart';
 
+enum FilterOption {
+  Favorite,
+  All,  
+}
+
 class ProductsOverviewScreen extends StatelessWidget {
   // const ProductsOverviewScreen({super.key});
 
@@ -18,7 +23,7 @@ class ProductsOverviewScreen extends StatelessWidget {
         actions: [
           PopupMenuButton(
             onSelected: (int selectedValue) {
-              
+              print(selectedValue);
             },
               icon: Icon(
                 Icons.more_vert,
