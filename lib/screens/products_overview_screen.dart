@@ -15,6 +15,7 @@ class ProductsOverviewScreen extends StatelessWidget {
         title: Text(
           'MyShop',
         ),
+        actions: [PopupMenuButton(itemBuilder: itemBuilder)],
       ),
       body: ProductsGrid(),
     );
