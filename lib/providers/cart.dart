@@ -22,6 +22,11 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
+  int get itemCount()
+  {
+    
+  }
+
   void addItem(
     String productId,
     double price,
