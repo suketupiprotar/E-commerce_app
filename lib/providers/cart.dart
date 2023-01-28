@@ -22,9 +22,9 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
-  int get itemCount()
+  int get itemCount
   {
-    
+    return _items == null ? 0 : _items.length;
   }
 
   void addItem(

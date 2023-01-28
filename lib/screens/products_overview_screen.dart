@@ -7,6 +7,7 @@ import '../providers/product.dart';
 import '../widgets/product_item.dart';
 import 'package:shop_app/providers/products.dart';
 import 'package:shop_app/widgets/badge.dart';
+import 'package:shop_app/providers/cart.dart';
 
 enum FilterOption {
   Favorite,
@@ -54,14 +55,18 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               ),
             ],
           ),
-          Badge(
+          Consumer<Cart>(
+            builder: (_, cart, ch) => Badge(  
+              child: ch,
+              value: cart.itemCount.toString(),
+            ),
             child: IconButton(
               icon: Icon(
                 Icons.shopping_cart,
               ),
               onPressed: () {},
             ),
-          )
+          ),
         ],
       ),
       body: ProductsGrid(_showOnlyFavorites),
