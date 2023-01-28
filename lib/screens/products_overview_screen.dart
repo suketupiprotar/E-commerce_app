@@ -1,9 +1,13 @@
+import 'dart:js';
+
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_app/widgets/products_grid.dart';
 import '../providers/product.dart';
 import '../widgets/product_item.dart';
+import 'package:shop_app/providers/products.dart';
 
 enum FilterOption {
   Favorite,
@@ -12,7 +16,7 @@ enum FilterOption {
 
 class ProductsOverviewScreen extends StatelessWidget {
   // const ProductsOverviewScreen({super.key});
-
+  final productsContainer = Provider.of<Products>(context);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +31,7 @@ class ProductsOverviewScreen extends StatelessWidget {
                 
               }
               else{
-                
+
               }
             },
               icon: Icon(
