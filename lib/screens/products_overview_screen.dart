@@ -29,7 +29,7 @@ class ProductsOverviewScreen extends StatelessWidget {
                 productsContainer.showFavotitesOnly();
               }
               else{
-
+                productsContainer.showAll();
               }
             },
               icon: Icon(
