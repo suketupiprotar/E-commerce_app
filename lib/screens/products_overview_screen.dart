@@ -17,6 +17,9 @@ class ProductsOverviewScreen extends StatelessWidget {
         ),
         actions: [
           PopupMenuButton(
+            onSelected: (int selectedValue) {
+              
+            },
               icon: Icon(
                 Icons.more_vert,
               ),
