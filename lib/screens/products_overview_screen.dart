@@ -53,7 +53,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                   ]),
         ],
       ),
-      body: ProductsGrid(),
+      body: ProductsGrid(_showOnlyFavorites),
     );
   }
 }
