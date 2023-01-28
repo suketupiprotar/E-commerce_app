@@ -15,11 +15,24 @@ class ProductsOverviewScreen extends StatelessWidget {
         title: Text(
           'MyShop',
         ),
-        actions: [PopupMenuButton(itemBuilder: itemBuilder)],
+        actions: [
+          PopupMenuButton(
+              icon: Icon(
+                Icons.more_vert,
+              ),
+              itemBuilder: (_) => [
+                    PopupMenuItem(
+                      child: Text('Only Favorite!'),
+                      value: 0,
+                    ),
+                     PopupMenuItem(
+                      child: Text('Show All!'),
+                      value: 1,
+                    ),
+                  ]),
+        ],
       ),
       body: ProductsGrid(),
     );
   }
 }
-
-
