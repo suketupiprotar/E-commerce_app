@@ -9,7 +9,7 @@ import 'package:shop_app/providers/products.dart';
 
 enum FilterOption {
   Favorite,
-  All,  
+  All,
 }
 
 class ProductsOverviewScreen extends StatefulWidget {
@@ -30,14 +30,15 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         ),
         actions: [
           PopupMenuButton(
-            onSelected: (FilterOption selectedValue) {
-              if (selectedValue == FilterOption.Favorite) {
-                _showOnlyFavorites = true;
-              }
-              else{
-                _showOnlyFavorites = false;
-              }
-            },
+              onSelected: (FilterOption selectedValue) {
+                setState(() {
+                  if (selectedValue == FilterOption.Favorite) {
+                    _showOnlyFavorites = true;
+                  } else {
+                    _showOnlyFavorites = false;
+                  }
+                });
+              },
               icon: Icon(
                 Icons.more_vert,
               ),
@@ -46,7 +47,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                       child: Text('Only Favorite!'),
                       value: FilterOption.Favorite,
                     ),
-                     PopupMenuItem(
+                    PopupMenuItem(
                       child: Text('Show All!'),
                       value: FilterOption.All,
                     ),
