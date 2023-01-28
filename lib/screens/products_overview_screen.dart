@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +14,7 @@ enum FilterOption {
 
 class ProductsOverviewScreen extends StatelessWidget {
   // const ProductsOverviewScreen({super.key});
-  final productsContainer = Provider.of<Products>(context);
+  final productsContainer = Provider.of<Products>(context,listen: false);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +26,7 @@ class ProductsOverviewScreen extends StatelessWidget {
           PopupMenuButton(
             onSelected: (FilterOption selectedValue) {
               if (selectedValue == FilterOption.Favorite) {
-                
+                productsContainer.showFavotitesOnly();
               }
               else{
 

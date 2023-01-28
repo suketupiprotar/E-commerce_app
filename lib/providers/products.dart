@@ -38,10 +38,10 @@ class Products with ChangeNotifier {
     ),
   ];
 
-  var ShowFavotitesOnly = false;
+  var _showFavotitesOnly = false;
 
   List<Product> get items {
-    if(ShowFavotitesOnly)
+    if(_showFavotitesOnly)
     {
       return _items.where((prodItem) => prodItem.isFavorite).toList();
     }
@@ -50,6 +50,15 @@ class Products with ChangeNotifier {
  Product findById(String id)
  {
   return _items.firstWhere((prod) => prod.id == id);
+ }
+
+ void showFavotitesOnly()
+ {
+    _showFavotitesOnly = true;
+ }
+ void showAll()
+ {
+  _showFavotitesOnly = false;
  }
 
   void addProducts() {
