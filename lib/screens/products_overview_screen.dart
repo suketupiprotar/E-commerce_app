@@ -69,6 +69,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           ),
         ],
       ),
+      //body
       body: ProductsGrid(_showOnlyFavorites),
     );
   }
