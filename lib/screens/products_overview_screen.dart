@@ -59,6 +59,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             builder: (_, cart, ch) => Badge(  
               child: ch,
               value: cart.itemCount.toString(), color: Colors.yellow, key: null,
+              //key 30 jan ae enter karish
             ),
             child: IconButton(
               icon: Icon(
