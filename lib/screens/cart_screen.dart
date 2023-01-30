@@ -16,7 +16,16 @@ class CartScreen extends StatelessWidget {
           margin: EdgeInsets.all(15),
           child: Padding(
             padding: EdgeInsets.all(8),
-            child: Row(children: []),
+            child: Row(
+              children: [
+                Text(
+                  'Total',
+                  style: TextStyle(fontSize: 20),
+                ),
+                SizedBox(width: 10,)
+                Chip(label: Text(),),
+              ],
+            ),
           ),
         )
       ]),
