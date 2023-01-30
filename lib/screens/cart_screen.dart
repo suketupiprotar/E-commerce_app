@@ -11,6 +11,11 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Your Cart'),
       ),
+      body: Column(children: [
+        Card(
+          margin: EdgeInsets.all(15),
+        )
+      ]),
     );
   }
 }
