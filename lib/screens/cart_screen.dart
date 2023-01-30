@@ -5,7 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:shop_app/providers/cart.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+  // const CartScreen({super.key});
+  static const routeName = '/cart';
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class CartScreen extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(8),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Total',
@@ -29,7 +31,10 @@ class CartScreen extends StatelessWidget {
                   width: 10,
                 ),
                 Chip(
-                  label: Text('\$${cart.totalAmount}'),
+                  label: Text(
+                    '\$${cart.totalAmount}',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   backgroundColor: Theme.of(context).primaryColor,
                 ),
               ],
