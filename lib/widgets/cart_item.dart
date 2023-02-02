@@ -19,7 +19,10 @@ class CartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dismissible(
-      key: ,
+      key: ValueKey(id),
+      background: Container(
+        color: Theme.of(context).errorColor,
+      ),
       child: Card(
         margin: EdgeInsets.symmetric(
           horizontal: 15,
@@ -45,5 +48,3 @@ class CartItem extends StatelessWidget {
     );
   }
 }
-
-
