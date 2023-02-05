@@ -11,7 +11,7 @@ class AppDrawer extends StatelessWidget {
     return Drawer(
       child: Column(children: [
         AppBar(
-          title: Text('Hello'),
+          title: Text('Hello Friend'),
           automaticallyImplyLeading: false,
         ),
         Divider(),
