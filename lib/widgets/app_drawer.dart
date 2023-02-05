@@ -18,6 +18,7 @@ class AppDrawer extends StatelessWidget {
         ListTile(
           leading: Icon(Icons.shop),
           title: Text('Shop'),
+          
           onTap: () {
             Navigator.of(context).pushReplacementNamed('/');
           },
