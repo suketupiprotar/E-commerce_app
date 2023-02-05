@@ -3,9 +3,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/providers/products.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/widgets/user_product_item.dart';
 
 class UserProductsScreen extends StatelessWidget {
-  const UserProductsScreen({super.key});
+  // const UserProductsScreen({super.key});
+  static const routeName = '/user-products';
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,18 @@ class UserProductsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(8),
-        child: ListView.builder(itemCount: productData.items.length,itemBuilder: (_,i) => ,),
+        child: ListView.builder(
+          itemCount: productData.items.length,
+          itemBuilder: (_, i) => Column(
+            children: [
+              UserProductItem(
+                productData.items[i].title,
+                productData.items[i].imageUrl,
+              ),
+              Divider(),
+            ],
+          ),
+        ),
       ),
     );
   }
