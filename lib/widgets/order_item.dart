@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -61,8 +59,10 @@ class _OrderItemState extends State<OrderItem> {
                               ),
                               Text(
                                 '${prod.quantity}x \$${prod.price}',
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.grey),
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.grey,
+                                ),
                               )
                             ],
                           ))

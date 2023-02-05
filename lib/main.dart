@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       // create: (ctx) => Products(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'MyShop',
         theme: ThemeData(
           primarySwatch: Colors.purple,
