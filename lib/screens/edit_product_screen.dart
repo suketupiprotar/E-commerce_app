@@ -50,9 +50,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
   }
 
   void _saveForm() {
-    final isValid =_form.currentState!.validate();
-    if(!isValid)
-    {
+    final isValid = _form.currentState!.validate();
+    if (!isValid) {
       return;
     }
     _form.currentState!.save();
@@ -60,7 +59,6 @@ class _EditProductScreenState extends State<EditProductScreen> {
     print(_editedProduct.description);
     print(_editedProduct.price);
     print(_editedProduct.imageUrl);
-
   }
 
   @override
@@ -88,12 +86,11 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   FocusScope.of(context).requestFocus(_priceFocusNode);
                 },
                 validator: (value) {
-                  if(value!.isEmpty)
-                  {
+                  if (value!.isEmpty) {
                     return 'Please Provide a Value';
                   }
                   return null;
-                } ,
+                },
                 onSaved: (value) {
                   _editedProduct = Product(
                     title: value.toString(),
@@ -112,6 +109,17 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_descriptionFocusNode);
                 },
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please Enter a price.';
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'Please enter a valid number';
+                  }
+                  if (double.parse(value) <= 0) {
+                    return 'Please Enter a number greater than zero';
+                  }
+                },
                 onSaved: (value) {
                   _editedProduct = Product(
                     title: _editedProduct.title,
@@ -127,6 +135,15 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 maxLines: 3,
                 keyboardType: TextInputType.multiline,
                 focusNode: _descriptionFocusNode,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter a description';
+                  }
+                  if (value.length < 10) {
+                    return 'Should be at lease 10 character long';
+                  }
+                  return null;
+                },
                 onSaved: (value) {
                   _editedProduct = Product(
                     title: _editedProduct.title,
