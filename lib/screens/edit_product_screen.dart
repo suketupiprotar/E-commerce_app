@@ -50,7 +50,17 @@ class _EditProductScreenState extends State<EditProductScreen> {
   }
 
   void _saveForm() {
+    final isValid =_form.currentState!.validate();
+    if(!isValid)
+    {
+      return;
+    }
     _form.currentState!.save();
+    print(_editedProduct.title);
+    print(_editedProduct.description);
+    print(_editedProduct.price);
+    print(_editedProduct.imageUrl);
+
   }
 
   @override
@@ -77,6 +87,22 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_priceFocusNode);
                 },
+                validator: (value) {
+                  if(value!.isEmpty)
+                  {
+                    return 'Please Provide a Value';
+                  }
+                  return null;
+                } ,
+                onSaved: (value) {
+                  _editedProduct = Product(
+                    title: value.toString(),
+                    price: _editedProduct.price,
+                    description: _editedProduct.description,
+                    imageUrl: _editedProduct.imageUrl,
+                    id: null,
+                  );
+                },
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Price'),
@@ -86,12 +112,30 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_descriptionFocusNode);
                 },
+                onSaved: (value) {
+                  _editedProduct = Product(
+                    title: _editedProduct.title,
+                    price: double.parse(value.toString()),
+                    description: _editedProduct.description,
+                    imageUrl: _editedProduct.imageUrl,
+                    id: null,
+                  );
+                },
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Description'),
                 maxLines: 3,
                 keyboardType: TextInputType.multiline,
                 focusNode: _descriptionFocusNode,
+                onSaved: (value) {
+                  _editedProduct = Product(
+                    title: _editedProduct.title,
+                    price: _editedProduct.price,
+                    description: value.toString(),
+                    imageUrl: _editedProduct.imageUrl,
+                    id: null,
+                  );
+                },
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -117,14 +161,24 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   ),
                   Expanded(
                     child: TextFormField(
-                        decoration: InputDecoration(labelText: 'Image Url'),
-                        keyboardType: TextInputType.url,
-                        textInputAction: TextInputAction.done,
-                        controller: _imageUrlController,
-                        focusNode: _imageUrlFocusNode,
-                        onFieldSubmitted: (_) {
-                          _saveForm();
-                        }),
+                      decoration: InputDecoration(labelText: 'Image Url'),
+                      keyboardType: TextInputType.url,
+                      textInputAction: TextInputAction.done,
+                      controller: _imageUrlController,
+                      focusNode: _imageUrlFocusNode,
+                      onFieldSubmitted: (_) {
+                        _saveForm();
+                      },
+                      onSaved: (value) {
+                        _editedProduct = Product(
+                          title: _editedProduct.title,
+                          price: _editedProduct.price,
+                          description: _editedProduct.description,
+                          imageUrl: value.toString(),
+                          id: null,
+                        );
+                      },
+                    ),
                   ),
                 ],
               )
