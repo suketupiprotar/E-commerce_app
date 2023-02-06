@@ -31,7 +31,7 @@ var _initValues = {
    'description': '',
    'price': '',
    'imageUrl': '',
-}
+};
   var _isInit = true;
 
   @override
@@ -139,7 +139,8 @@ var _initValues = {
                     price: _editedProduct.price,
                     description: _editedProduct.description,
                     imageUrl: _editedProduct.imageUrl,
-                    id: null,
+                    id: _editedProduct.id,
+                    isFavorite: _editedProduct.isFavorite,
                   );
                 },
               ),
@@ -169,7 +170,8 @@ var _initValues = {
                     price: double.parse(value.toString()),
                     description: _editedProduct.description,
                     imageUrl: _editedProduct.imageUrl,
-                    id: null,
+                    id: _editedProduct.id,
+                    isFavorite: _editedProduct.isFavorite,
                   );
                 },
               ),
@@ -194,7 +196,8 @@ var _initValues = {
                     price: _editedProduct.price,
                     description: value.toString(),
                     imageUrl: _editedProduct.imageUrl,
-                    id: null,
+                    id: _editedProduct.id,
+                    isFavorite: _editedProduct.isFavorite,
                   );
                 },
               ),
@@ -252,7 +255,8 @@ var _initValues = {
                           price: _editedProduct.price,
                           description: _editedProduct.description,
                           imageUrl: value.toString(),
-                          id: null,
+                          id: _editedProduct.id,
+                    isFavorite: _editedProduct.isFavorite,
                         );
                       },
                     ),
