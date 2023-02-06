@@ -8,7 +8,7 @@ import 'package:shop_app/widgets/products_grid.dart';
 import '../providers/product.dart';
 import '../widgets/product_item.dart';
 import 'package:shop_app/providers/products.dart';
-import 'package:shop_app/widgets/badge.dart';
+import 'package:shop_app/widgets/badge.dart' as bdg;
 import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/widgets/app_drawer.dart';
 
@@ -60,7 +60,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             ],
           ),
           Consumer<Cart>(
-            builder: (_, cart, ch) => Badge(  
+            builder: (_, cart, ch) => bdg.Badge(  
               child: ch!,
               value: cart.itemCount.toString(), color: Colors.orange, key: null,
             ),

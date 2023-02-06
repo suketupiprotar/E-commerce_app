@@ -1,6 +1,7 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/providers/product.dart';
 
 class EditProductScreen extends StatefulWidget {
   // const EditProductScreen({super.key});
@@ -16,6 +17,13 @@ class _EditProductScreenState extends State<EditProductScreen> {
   final _imageUrlController = TextEditingController();
   final _imageUrlFocusNode = FocusNode();
   final _form = GlobalKey<FormState>();
+  var _editedProduct = Product(
+    id: null,
+    title: '',
+    description: '',
+    price: 0,
+    imageUrl: '',
+  );
 
   @override
   void initState() {
@@ -41,7 +49,9 @@ class _EditProductScreenState extends State<EditProductScreen> {
     }
   }
 
-  void _saveForm() {}
+  void _saveForm() {
+    _form.currentState!.save();
+  }
 
   @override
   Widget build(BuildContext context) {
