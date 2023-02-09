@@ -50,7 +50,7 @@ var _initValues = {
       final productId = ModalRoute.of(context)!.settings.arguments as String;
       if(productId != null)
       {
-        _editedProduct = Provider.of<Product>(context,listen: false).findById(productId);
+        _editedProduct = Provider.of<Products>(context,listen: false).findById(productId);
       _initValues = {'title' : _editedProduct.title,'description' : _editedProduct.description,'price':_editedProduct.price.toString(),'imageUrl': '',};
       _imageUrlController.text = _editedProduct.imageUrl;
       }
@@ -93,10 +93,11 @@ var _initValues = {
     _form.currentState!.save();
     if(_editedProduct.id != null)
     {
-        Provider.of<Product>(context, listen: false).updateProduct(_editedProduct.id,_editedProduct);
+        Provider.of<Products>(context, listen: false).updateProduct(_editedProduct.id.toString(),_editedProduct);
+        
     }
     else{
-    Provider.of<Product>(context, listen: false).addProduct(_editedProduct);
+    Provider.of<Products>(context, listen: false).addProduct(_editedProduct);
     }
 
     Navigator.of(context).pop();
