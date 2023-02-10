@@ -69,7 +69,7 @@ class Products with ChangeNotifier {
   //   notifyListeners();
   //  }
 
-  void addProduct(Product product) {
+  Future<void> addProduct(Product product) {
     // _items.add(value);
     var url =
         Uri.parse('https://shopapp-965b8-default-rtdb.firebaseio.com/products');
@@ -98,7 +98,8 @@ class Products with ChangeNotifier {
       _items.add(newProduct);
       // _items.insert(0,newProduct); // at the start of the list
       notifyListeners();
-    });
+      
+    });return Future.value();
   }
 
   void updateProduct(String id, Product newProduct) {
