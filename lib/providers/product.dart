@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 
 class Product with ChangeNotifier {
   final String? id;
@@ -20,7 +21,11 @@ class Product with ChangeNotifier {
 
   void toggleFavoriteStatus()
   {
+    final oldStatus = isFavorite;
     isFavorite = !isFavorite;
     notifyListeners();
+    final url = Uri.parse(
+      'https://shopapp-965b8-default-rtdb.firebaseio.com/products/$id');
+    http.patch(url);
   }
 }
