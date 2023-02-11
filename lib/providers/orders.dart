@@ -28,7 +28,7 @@ class Orders with ChangeNotifier {
 
   Future<void> addOrder(List<CartItem> cartProducts, double total) async {
     var url =
-        Uri.parse('https://shopapp-965b8-default-rtdb.firebaseio.com/products');
+        Uri.parse('https://shopapp-965b8-default-rtdb.firebaseio.com/orders.json');
     final timestamp = DateTime.now();
     final response = await http.post(url,
         body: json.encode({
