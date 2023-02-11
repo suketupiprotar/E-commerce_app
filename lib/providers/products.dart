@@ -132,9 +132,22 @@ class Products with ChangeNotifier {
   // return Future.value();
 }
 
-void updateProduct(String id, Product newProduct) {
+Future<void> updateProduct(String id, Product newProduct) async {
   final prodIndex = _items.indexWhere((prod) => prod.id == id);
   if (prodIndex > 0) {
+    final url = Uri.parse(
+        'https://shopapp-965b8-default-rtdb.firebaseio.com/products/$id');
+    await http.patch(
+      url,
+      body: json.encode(
+        {
+          'title': newProduct.title,
+          'description': newProduct.description,
+          ' imageUrl': newProduct.imageUrl,
+          'price': newProduct.price,
+        },
+      ),
+    );
     _items[prodIndex] = newProduct;
     notifyListeners();
   } else {
@@ -143,6 +156,20 @@ void updateProduct(String id, Product newProduct) {
 }
 
 void deleteProduct(String id) {
-  _items.removeWhere((prod) => prod.id == id);
+  final url = Uri.parse(
+      'https://shopapp-965b8-default-rtdb.firebaseio.com/products/$id');
+  final existingProductIndex = _items.indexWhere((prod) => prod.id == id);
+  var existingProduct = _items[existingProductIndex];
+  _items.removeAt(existingProductIndex);
   notifyListeners();
+  http.delete(url).then((response) {
+    if (response.statusCode >= 400) {
+      throw Exception();
+    }
+    existingProduct = Null;
+  }).catchError((_) {
+    _items.insert(existingProductIndex, existingProduct);
+    notifyListeners();
+  });
+  // _items.removeWhere((prod) => prod.id == id);
 }
