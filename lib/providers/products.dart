@@ -108,7 +108,7 @@ class Products with ChangeNotifier {
   Future<void> addProduct(Product product) async {
     // _items.add(value);
     var url =
-        Uri.parse('https://shopapp-965b8-default-rtdb.firebaseio.com/products');
+        Uri.parse('https://shopapp-965b8-default-rtdb.firebaseio.com/products.json?auth=$authToken');
     try {
       final response = await http.post(
         url,
@@ -146,7 +146,7 @@ Future<void> updateProduct(String id, Product newProduct) async {
   final prodIndex = _items.indexWhere((prod) => prod.id == id);
   if (prodIndex > 0) {
     final url = Uri.parse(
-        'https://shopapp-965b8-default-rtdb.firebaseio.com/products/$id');
+        'https://shopapp-965b8-default-rtdb.firebaseio.com/products/$id.json?auth=$authToken');
     await http.patch(
       url,
       body: json.encode(
@@ -167,7 +167,7 @@ Future<void> updateProduct(String id, Product newProduct) async {
 
 Future<void> deleteProduct(String id) async {
   final url = Uri.parse(
-      'https://shopapp-965b8-default-rtdb.firebaseio.com/products/$id');
+      'https://shopapp-965b8-default-rtdb.firebaseio.com/products/$id..json?auth=$authToken');
   final existingProductIndex = _items.indexWhere((prod) => prod.id == id);
   var existingProduct = _items[existingProductIndex];
 
